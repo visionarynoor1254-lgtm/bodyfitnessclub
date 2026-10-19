@@ -1,0 +1,6 @@
+{
+  "name": "BODY FITNESS CLUB",
+  "description": "Premium athletic gym website featuring strength training, personal coaching, conditioning programs, facilities, and membership enquiry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

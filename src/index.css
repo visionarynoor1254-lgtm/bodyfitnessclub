@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gym-black: #080808;
+  --color-gym-dark: #0f0f0f;
+  --color-gym-charcoal: #151515;
+  --color-gym-card: #191919;
+  --color-gym-border: #262626;
+  --color-gym-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-gym-red: #E52B2B;
+  --color-gym-red-hover: #CC1F1F;
+  --color-gym-white: #F5F5F5;
+  --color-gym-muted: #9E9E9E;
+  --color-gym-dim: #707070;
+
+  --font-anton: 'Anton', 'Bebas Neue', sans-serif;
+  --font-bebas: 'Bebas Neue', 'Anton', sans-serif;
+  --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Custom Typography & Utility Styles */
+.font-display {
+  font-family: var(--font-bebas), 'Anton', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-impact {
+  font-family: var(--font-anton), 'Bebas Neue', sans-serif;
+  letter-spacing: 0.01em;
+}
+
+/* Custom Scrollbar for sleek aesthetic */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E52B2B;
+}
+
+/* Focus styles for accessibility */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #E52B2B;
+  outline-offset: 2px;
+}
