@@ -1,6 +1,7 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import React from 'react';
 import { ASSETS } from '../data/gymData.ts';
+import { GymImage } from './GymImage.tsx';
 
 interface HeroProps {
   onStartTraining: () => void;
@@ -76,13 +77,14 @@ export const Hero: React.FC<HeroProps> = ({ onStartTraining, onExplorePrograms }
                 <span className="font-impact text-3xl">BODY FITNESS CLUB</span>
               </div>
 
-              {/* Main Realistic Athlete Image */}
-              <img
+              {/* Main Realistic Athlete Image with automatic fallback */}
+              <GymImage
                 src={ASSETS.heroAthlete}
+                fallbackSrc={ASSETS.heroAthleteFallback}
                 alt="Muscular athlete training with heavy dumbbells in a dark athletic gym"
-                referrerPolicy="no-referrer"
-                loading="eager"
+                priority={true}
                 className="relative z-10 w-full h-full object-cover object-top filter brightness-95 contrast-105 group-hover:scale-102 transition-transform duration-500 ease-out"
+                containerClassName="w-full h-full"
               />
 
               {/* Cinematic Vignette Overlays for Seamless Readability & Integration */}

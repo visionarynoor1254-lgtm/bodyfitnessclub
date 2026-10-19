@@ -1,6 +1,7 @@
 import { ArrowRight, ShieldCheck, Target, Zap } from 'lucide-react';
 import React from 'react';
 import { ASSETS } from '../data/gymData.ts';
+import { GymImage } from './GymImage.tsx';
 
 interface AboutProps {
   onOpenAboutModal: () => void;
@@ -15,12 +16,12 @@ export const About: React.FC<AboutProps> = ({ onOpenAboutModal }) => {
           {/* Split Column 1: Real Gym Interior Photograph */}
           <div className="lg:col-span-6 relative">
             <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-sm overflow-hidden border border-[#262626] bg-[#121212] group shadow-2xl">
-              <img
+              <GymImage
                 src={ASSETS.gymInterior}
+                fallbackSrc={ASSETS.gymInteriorFallback}
                 alt="Interior view of BODY FITNESS CLUB gym floor with power racks and free weights"
-                referrerPolicy="no-referrer"
-                loading="lazy"
                 className="w-full h-full object-cover filter brightness-90 contrast-105 group-hover:scale-102 transition-transform duration-500"
+                containerClassName="w-full h-full"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent pointer-events-none" />
               

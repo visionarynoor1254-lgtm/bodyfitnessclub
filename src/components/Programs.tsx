@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import React from 'react';
 import { PROGRAMS } from '../data/gymData.ts';
 import { ProgramDetail } from '../types.ts';
+import { GymImage } from './GymImage.tsx';
 
 interface ProgramsProps {
   onSelectProgram: (program: ProgramDetail) => void;
@@ -43,14 +44,15 @@ export const Programs: React.FC<ProgramsProps> = ({ onSelectProgram }) => {
             >
               {/* Card Image Container */}
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1f1f1f]">
-                <img
+                <GymImage
                   src={program.image}
+                  fallbackSrc={program.fallbackImage}
                   alt={program.alt}
-                  referrerPolicy="no-referrer"
-                  loading="lazy"
+                  priority={idx === 0}
                   className="w-full h-full object-cover filter brightness-90 contrast-105 group-hover:scale-105 transition-transform duration-500 ease-out"
+                  containerClassName="w-full h-full"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-90" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-90 pointer-events-none" />
                 
                 {/* Clean Index Number */}
                 <div className="absolute top-4 left-4 font-impact text-2xl text-white/40 tracking-wider">

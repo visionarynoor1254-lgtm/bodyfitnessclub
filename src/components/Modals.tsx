@@ -1,6 +1,7 @@
 import { CheckCircle2, ChevronRight, Copy, Dumbbell, ShieldCheck, X } from 'lucide-react';
 import React, { useState } from 'react';
 import { GalleryImage, MembershipPlan, ProgramDetail } from '../types.ts';
+import { GymImage } from './GymImage.tsx';
 
 // 1. Join / Membership Enquiry Modal
 interface JoinModalProps {
@@ -246,12 +247,14 @@ export const ProgramModal: React.FC<ProgramModalProps> = ({ program, onClose, on
 
         <div className="space-y-6">
           <div className="relative aspect-[16/9] w-full rounded-sm overflow-hidden border border-[#222222] bg-[#1a1a1a]">
-            <img
+            <GymImage
               src={program.image}
+              fallbackSrc={program.fallbackImage}
               alt={program.alt}
               className="w-full h-full object-cover filter brightness-95"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-90 pointer-events-none" />
             <div className="absolute bottom-4 left-4">
               <span className="text-xs font-semibold text-[#E52B2B] uppercase tracking-wider">PROGRAM BLUEPRINT</span>
               <h2 className="font-impact text-3xl sm:text-4xl text-white">{program.title}</h2>
@@ -434,10 +437,12 @@ export const LightboxModal: React.FC<LightboxModalProps> = ({ image, onClose }) 
         </button>
 
         <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-black">
-          <img
+          <GymImage
             src={image.src}
+            fallbackSrc={image.fallbackSrc}
             alt={image.title}
             className="w-full h-full object-contain"
+            containerClassName="w-full h-full"
           />
         </div>
 

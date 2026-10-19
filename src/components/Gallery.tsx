@@ -2,6 +2,7 @@ import { Maximize2 } from 'lucide-react';
 import React from 'react';
 import { GALLERY_IMAGES } from '../data/gymData.ts';
 import { GalleryImage } from '../types.ts';
+import { GymImage } from './GymImage.tsx';
 
 interface GalleryProps {
   onSelectImage: (image: GalleryImage) => void;
@@ -37,21 +38,21 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectImage }) => {
             onClick={() => onSelectImage(GALLERY_IMAGES[0])}
             className="md:col-span-2 relative aspect-[16/9] bg-[#121212] border border-[#262626] rounded-sm overflow-hidden group cursor-pointer"
           >
-            <img
+            <GymImage
               src={GALLERY_IMAGES[0].src}
+              fallbackSrc={GALLERY_IMAGES[0].fallbackSrc}
               alt={GALLERY_IMAGES[0].title}
-              referrerPolicy="no-referrer"
-              loading="lazy"
               className="w-full h-full object-cover filter brightness-90 group-hover:scale-102 transition-transform duration-500"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
               <div>
                 <span className="text-xs font-semibold text-[#E52B2B] tracking-wider uppercase block">FACILITY INTERIOR</span>
                 <h3 className="font-impact text-2xl text-white">{GALLERY_IMAGES[0].title}</h3>
                 <p className="text-xs text-[#9E9E9E] max-w-md mt-1 hidden sm:block">{GALLERY_IMAGES[0].caption}</p>
               </div>
-              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors">
+              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors pointer-events-auto">
                 <Maximize2 className="w-4 h-4" />
               </span>
             </div>
@@ -62,21 +63,21 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectImage }) => {
             onClick={() => onSelectImage(GALLERY_IMAGES[1])}
             className="relative aspect-[3/4] md:aspect-auto md:row-span-2 bg-[#121212] border border-[#262626] rounded-sm overflow-hidden group cursor-pointer"
           >
-            <img
+            <GymImage
               src={GALLERY_IMAGES[1].src}
+              fallbackSrc={GALLERY_IMAGES[1].fallbackSrc}
               alt={GALLERY_IMAGES[1].title}
-              referrerPolicy="no-referrer"
-              loading="lazy"
               className="w-full h-full object-cover filter brightness-90 group-hover:scale-102 transition-transform duration-500"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
               <div>
                 <span className="text-xs font-semibold text-[#E52B2B] tracking-wider uppercase block">ATHLETE STRENGTH</span>
                 <h3 className="font-impact text-2xl text-white">{GALLERY_IMAGES[1].title}</h3>
                 <p className="text-xs text-[#9E9E9E] mt-1 hidden sm:block">{GALLERY_IMAGES[1].caption}</p>
               </div>
-              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors">
+              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors pointer-events-auto">
                 <Maximize2 className="w-4 h-4" />
               </span>
             </div>
@@ -87,20 +88,20 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectImage }) => {
             onClick={() => onSelectImage(GALLERY_IMAGES[2])}
             className="relative aspect-[4/3] bg-[#121212] border border-[#262626] rounded-sm overflow-hidden group cursor-pointer"
           >
-            <img
+            <GymImage
               src={GALLERY_IMAGES[2].src}
+              fallbackSrc={GALLERY_IMAGES[2].fallbackSrc}
               alt={GALLERY_IMAGES[2].title}
-              referrerPolicy="no-referrer"
-              loading="lazy"
               className="w-full h-full object-cover filter brightness-90 group-hover:scale-102 transition-transform duration-500"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
               <div>
                 <span className="text-xs font-semibold text-[#E52B2B] tracking-wider uppercase block">FREE WEIGHTS</span>
                 <h3 className="font-impact text-xl text-white">{GALLERY_IMAGES[2].title}</h3>
               </div>
-              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors">
+              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors pointer-events-auto">
                 <Maximize2 className="w-4 h-4" />
               </span>
             </div>
@@ -111,20 +112,20 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectImage }) => {
             onClick={() => onSelectImage(GALLERY_IMAGES[3])}
             className="relative aspect-[4/3] bg-[#121212] border border-[#262626] rounded-sm overflow-hidden group cursor-pointer"
           >
-            <img
+            <GymImage
               src={GALLERY_IMAGES[3].src}
+              fallbackSrc={GALLERY_IMAGES[3].fallbackSrc}
               alt={GALLERY_IMAGES[3].title}
-              referrerPolicy="no-referrer"
-              loading="lazy"
               className="w-full h-full object-cover filter brightness-90 group-hover:scale-102 transition-transform duration-500"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
               <div>
                 <span className="text-xs font-semibold text-[#E52B2B] tracking-wider uppercase block">LIFTING RIGS</span>
                 <h3 className="font-impact text-xl text-white">{GALLERY_IMAGES[3].title}</h3>
               </div>
-              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors">
+              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors pointer-events-auto">
                 <Maximize2 className="w-4 h-4" />
               </span>
             </div>
@@ -135,21 +136,21 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectImage }) => {
             onClick={() => onSelectImage(GALLERY_IMAGES[4])}
             className="md:col-span-2 relative aspect-[16/9] sm:aspect-[21/9] bg-[#121212] border border-[#262626] rounded-sm overflow-hidden group cursor-pointer"
           >
-            <img
+            <GymImage
               src={GALLERY_IMAGES[4].src}
+              fallbackSrc={GALLERY_IMAGES[4].fallbackSrc}
               alt={GALLERY_IMAGES[4].title}
-              referrerPolicy="no-referrer"
-              loading="lazy"
               className="w-full h-full object-cover filter brightness-90 group-hover:scale-102 transition-transform duration-500"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
               <div>
                 <span className="text-xs font-semibold text-[#E52B2B] tracking-wider uppercase block">CONDITIONING</span>
                 <h3 className="font-impact text-xl sm:text-2xl text-white">{GALLERY_IMAGES[4].title}</h3>
                 <p className="text-xs text-[#9E9E9E] mt-1 hidden sm:block">{GALLERY_IMAGES[4].caption}</p>
               </div>
-              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors">
+              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors pointer-events-auto">
                 <Maximize2 className="w-4 h-4" />
               </span>
             </div>
@@ -160,20 +161,20 @@ export const Gallery: React.FC<GalleryProps> = ({ onSelectImage }) => {
             onClick={() => onSelectImage(GALLERY_IMAGES[5])}
             className="relative aspect-[4/3] sm:aspect-[21/9] md:aspect-[4/3] bg-[#121212] border border-[#262626] rounded-sm overflow-hidden group cursor-pointer"
           >
-            <img
+            <GymImage
               src={GALLERY_IMAGES[5].src}
+              fallbackSrc={GALLERY_IMAGES[5].fallbackSrc}
               alt={GALLERY_IMAGES[5].title}
-              referrerPolicy="no-referrer"
-              loading="lazy"
               className="w-full h-full object-cover filter brightness-90 group-hover:scale-102 transition-transform duration-500"
+              containerClassName="w-full h-full"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80" />
-            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#080808]/90 via-transparent to-transparent opacity-80 pointer-events-none" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-end justify-between pointer-events-none">
               <div>
                 <span className="text-xs font-semibold text-[#E52B2B] tracking-wider uppercase block">COACHING ZONE</span>
                 <h3 className="font-impact text-xl text-white">{GALLERY_IMAGES[5].title}</h3>
               </div>
-              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors">
+              <span className="p-2 bg-[#080808]/80 text-white rounded-sm group-hover:bg-[#E52B2B] transition-colors pointer-events-auto">
                 <Maximize2 className="w-4 h-4" />
               </span>
             </div>

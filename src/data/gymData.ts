@@ -1,12 +1,37 @@
 import { FacilityItem, GalleryImage, MembershipPlan, ProgramDetail } from '../types.ts';
 
+// Direct ESM imports: Vite guarantees these will be processed, hashed, and bundled in both dev and production!
+import heroAthleteImg from '../assets/images/hero_athlete_training_1792418671197.jpg';
+import strengthTrainingImg from '../assets/images/strength_training_1792418672532.jpg';
+import personalTrainingImg from '../assets/images/personal_training_1792418673126.jpg';
+import cardioConditioningImg from '../assets/images/cardio_conditioning_1792418672989.jpg';
+import gymInteriorImg from '../assets/images/gym_interior_floor_1792418674455.jpg';
+import facilityFreeWeightsImg from '../assets/images/facility_free_weights_1792418673662.jpg';
+
 export const ASSETS = {
-  heroAthlete: '/src/assets/images/hero_athlete_training_1792418671197.jpg',
-  strengthTraining: '/src/assets/images/strength_training_1792418672532.jpg',
-  personalTraining: '/src/assets/images/personal_training_1792418673126.jpg',
-  cardioConditioning: '/src/assets/images/cardio_conditioning_1792418672989.jpg',
-  gymInterior: '/src/assets/images/gym_interior_floor_1792418674455.jpg',
-  facilityFreeWeights: '/src/assets/images/facility_free_weights_1792418673662.jpg',
+  heroAthlete: heroAthleteImg,
+  heroAthleteFallback: '/images/hero_athlete.jpg',
+  heroAthletePublic: 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1200&q=80',
+
+  strengthTraining: strengthTrainingImg,
+  strengthTrainingFallback: '/images/strength_training.jpg',
+  strengthTrainingPublic: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1200&q=80',
+
+  personalTraining: personalTrainingImg,
+  personalTrainingFallback: '/images/personal_training.jpg',
+  personalTrainingPublic: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=1200&q=80',
+
+  cardioConditioning: cardioConditioningImg,
+  cardioConditioningFallback: '/images/cardio_conditioning.jpg',
+  cardioConditioningPublic: 'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?auto=format&fit=crop&w=1200&q=80',
+
+  gymInterior: gymInteriorImg,
+  gymInteriorFallback: '/images/gym_interior.jpg',
+  gymInteriorPublic: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=80',
+
+  facilityFreeWeights: facilityFreeWeightsImg,
+  facilityFreeWeightsFallback: '/images/facility_free_weights.jpg',
+  facilityFreeWeightsPublic: 'https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=1200&q=80',
 };
 
 export const PROGRAMS: ProgramDetail[] = [
@@ -16,6 +41,7 @@ export const PROGRAMS: ProgramDetail[] = [
     headline: 'Compound Resistance & Progressive Overload',
     description: 'Build strength with a focused approach to resistance training.',
     image: ASSETS.strengthTraining,
+    fallbackImage: ASSETS.strengthTrainingFallback,
     alt: 'Athlete performing barbell strength training in power rack',
     focusAreas: [
       'Compound Barbell Mechanics (Squat, Deadlift, Press)',
@@ -37,6 +63,7 @@ export const PROGRAMS: ProgramDetail[] = [
     headline: 'Direct 1-on-1 Coaching & Movement Diagnostics',
     description: 'Get individual guidance tailored to your fitness goals.',
     image: ASSETS.personalTraining,
+    fallbackImage: ASSETS.personalTrainingFallback,
     alt: 'Coach instructing athlete on lifting technique',
     focusAreas: [
       'Individual Biomechanical Movement Screening',
@@ -58,6 +85,7 @@ export const PROGRAMS: ProgramDetail[] = [
     headline: 'Work Capacity, Lactic Threshold & Stamina',
     description: 'Work on endurance, stamina, and overall fitness.',
     image: ASSETS.cardioConditioning,
+    fallbackImage: ASSETS.cardioConditioningFallback,
     alt: 'Athlete training intensely with heavy battle ropes on turf',
     focusAreas: [
       'Aerobic Base & VO2 Max Capacity Building',
@@ -82,7 +110,8 @@ export const FACILITIES: FacilityItem[] = [
     badge: 'Heavy Duty',
     description: 'Rigid commercial power cages, plate-loaded machines, Olympic benches, and precision barbell racks designed for heavy daily use.',
     details: ['6 Full Power Cages', 'Pin & Plate Loaded Iso-Lateral Units', 'Adjustable Competition Flat/Incline Benches'],
-    image: ASSETS.strengthTraining
+    image: ASSETS.strengthTraining,
+    fallbackImage: ASSETS.strengthTrainingFallback
   },
   {
     id: 'free-weights',
@@ -90,7 +119,8 @@ export const FACILITIES: FacilityItem[] = [
     badge: 'Urethane Steel',
     description: 'Extensive run of solid steel urethane dumbbells, paired with calibrated bumper and cast iron plates.',
     details: ['Dumbbell pairs from light to heavy dumbbells', 'Multiple Olympic standard bars', 'Cast iron plates & bumper pairs'],
-    image: ASSETS.facilityFreeWeights
+    image: ASSETS.facilityFreeWeights,
+    fallbackImage: ASSETS.facilityFreeWeightsFallback
   },
   {
     id: 'workout-floor',
@@ -98,7 +128,8 @@ export const FACILITIES: FacilityItem[] = [
     badge: 'Impact Dampened',
     description: 'High-density dual-layer vulcanized rubber flooring offering optimal foot traction and acoustic shock absorption.',
     details: ['Seamless shock-absorbing rubber', 'Designated dropping zones', 'Spacious open spacing between stations'],
-    image: ASSETS.gymInterior
+    image: ASSETS.gymInterior,
+    fallbackImage: ASSETS.gymInteriorFallback
   },
   {
     id: 'training-space',
@@ -106,7 +137,8 @@ export const FACILITIES: FacilityItem[] = [
     badge: 'Functional Zone',
     description: 'Dedicated turf strip for sled pushes, carry variations, plyometrics, and mobility preparation work.',
     details: ['Heavy-gauge push sled track', 'Ergometer conditioning station', 'Warm-up and mobility perimeter'],
-    image: ASSETS.cardioConditioning
+    image: ASSETS.cardioConditioning,
+    fallbackImage: ASSETS.cardioConditioningFallback
   }
 ];
 
@@ -160,6 +192,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 'g1',
     src: ASSETS.gymInterior,
+    fallbackSrc: ASSETS.gymInteriorFallback,
     title: 'Main Strength Floor',
     caption: 'Custom matte black power racks, spacious lifting platforms, and ambient directional overhead lighting.',
     aspect: 'landscape'
@@ -167,6 +200,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 'g2',
     src: ASSETS.heroAthlete,
+    fallbackSrc: ASSETS.heroAthleteFallback,
     title: 'Free Weight Training',
     caption: 'Athletic strength training with heavy urethane dumbbells in a focused, distraction-free environment.',
     aspect: 'portrait'
@@ -174,6 +208,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 'g3',
     src: ASSETS.facilityFreeWeights,
+    fallbackSrc: ASSETS.facilityFreeWeightsFallback,
     title: 'Free Weight Array',
     caption: 'Precision knurled dumbbells and competition grade benches lined for disciplined training.',
     aspect: 'square'
@@ -181,6 +216,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 'g4',
     src: ASSETS.strengthTraining,
+    fallbackSrc: ASSETS.strengthTrainingFallback,
     title: 'Lifting Platform & Barbell Rig',
     caption: 'Heavy-gauge power rack station equipped for squats, deadlifts, and overhead presses.',
     aspect: 'square'
@@ -188,6 +224,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 'g5',
     src: ASSETS.cardioConditioning,
+    fallbackSrc: ASSETS.cardioConditioningFallback,
     title: 'Conditioning Turf Strip',
     caption: 'High-intensity battle ropes and sled lanes for energy system conditioning.',
     aspect: 'landscape'
@@ -195,6 +232,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 'g6',
     src: ASSETS.personalTraining,
+    fallbackSrc: ASSETS.personalTrainingFallback,
     title: '1-on-1 Coaching Studio',
     caption: 'Dedicated space for movement screening, bar path diagnostics, and private coaching.',
     aspect: 'square'

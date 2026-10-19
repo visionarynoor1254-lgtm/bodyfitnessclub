@@ -2,9 +2,10 @@ import { CheckCircle2, Dumbbell, Shield, Sparkles } from 'lucide-react';
 import React, { useState } from 'react';
 import { FACILITIES } from '../data/gymData.ts';
 import { FacilityItem } from '../types.ts';
+import { GymImage } from './GymImage.tsx';
 
 interface FacilitiesProps {
-  onSelectFacilityImage: (imageSrc: string, title: string) => void;
+  onSelectFacilityImage: (imageSrc: string, title: string, fallbackSrc?: string) => void;
 }
 
 export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage }) => {
@@ -47,14 +48,14 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
               >
                 {/* Visual Image Header */}
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1a1a1a]">
-                  <img
+                  <GymImage
                     src={facility.image}
+                    fallbackSrc={facility.fallbackImage}
                     alt={facility.title}
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
                     className="w-full h-full object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-500"
+                    containerClassName="w-full h-full"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-80" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#151515] via-transparent to-transparent opacity-80 pointer-events-none" />
                   
                   {/* Badge */}
                   <div className="absolute top-3 left-3 bg-[#080808]/90 border border-[#333333] px-2.5 py-1 rounded-sm text-[11px] font-semibold text-[#F5F5F5] uppercase tracking-wider">
@@ -65,7 +66,7 @@ export const Facilities: React.FC<FacilitiesProps> = ({ onSelectFacilityImage })
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      onSelectFacilityImage(facility.image, facility.title);
+                      onSelectFacilityImage(facility.image, facility.title, facility.fallbackImage);
                     }}
                     className="absolute top-3 right-3 p-1.5 bg-[#080808]/80 hover:bg-[#E52B2B] text-white rounded-sm text-xs opacity-0 group-hover:opacity-100 transition-opacity"
                     title="View photograph"

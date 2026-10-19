@@ -46,10 +46,11 @@ export default function App() {
     setIsJoinOpen(true);
   };
 
-  const handleSelectFacilityImage = (src: string, title: string) => {
+  const handleSelectFacilityImage = (src: string, title: string, fallbackSrc?: string) => {
     setLightboxImage({
       id: 'facility-view',
       src,
+      fallbackSrc,
       title,
       caption: 'High-standard gym equipment and athletic floor at BODY FITNESS CLUB.',
       aspect: 'landscape'

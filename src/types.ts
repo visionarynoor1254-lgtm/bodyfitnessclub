@@ -4,6 +4,7 @@ export interface ProgramDetail {
   headline: string;
   description: string;
   image: string;
+  fallbackImage?: string;
   alt: string;
   focusAreas: string[];
   equipment: string[];
@@ -26,12 +27,14 @@ export interface FacilityItem {
   description: string;
   details: string[];
   image: string;
+  fallbackImage?: string;
   badge: string;
 }
 
 export interface GalleryImage {
   id: string;
   src: string;
+  fallbackSrc?: string;
   title: string;
   caption: string;
   aspect: 'portrait' | 'landscape' | 'square';
